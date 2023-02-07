@@ -11,7 +11,7 @@ overflow: hidden;
 	line-height: 48px;
 	grid-area: name;
 	transition: .7s ease;
-	letter-spacing: 2px;
+	
 }
 
 @media screen and (max-width:320px) {
@@ -19,5 +19,6 @@ overflow: hidden;
 		font-size: 27px;
 		font-weight: 500;
 		line-height: 32.68px;
+		letter-spacing: 2px;
 	}
 }

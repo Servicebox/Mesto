@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru">
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="./vendor/normalize.css">
+      <link href="./pages/index.css" rel="stylesheet">
+      <title>Mesto</title>
+   </head>
+   <body class="page">
+      <header class="header">
+         <img class="header__logo" src="./images/logo.svg" alt="логотип место">
+      </header>
+      <main class="content">
+         <section class="profile">
+            <img class="profile__avatar" src="./images/image.jpg" alt="аватарка">
+            <div class="profile__info">
+               <h2 class="profile__title">Жак-Ив Кусто</h2>
+               <button  class="button profile__button profile__button_act_edit" type="button"></button>
+               <p class="profile__subtitle">Исcледователь океана</p>
+            </div>
+            <button class="button profile__button profile__button_act_add" type="button"></button>
+         </section>
+         <section class="cards">
+            <ul class="cards__list">
+               <li class="card">
+                  <img class="card__image" src="./images/видеокарта.jpeg" alt="видеокарта">
+                  <div class="card__wrapper">
+                     <h2 class="card__title">видеокарта</h2>
+                     <div class="card__like-container">
+                        <button class="card__like-btn" type="button"></button>
+                     </div>
+                  </div>
+               </li>
+               <li class="card">
+                  <img class="card__image" src="./images/замена заднего стекла.jpeg" alt="заднее стекло">
+                  <div class="card__wrapper">
+                     <h2 class="card__title">Замена задней крышки</h2>
+                     <div class="card__like-container">
+                        <button class="card__like-btn" type="button"></button>
+                     </div>
+                  </div>
+               </li>
+               <li class="card">
+                  <img class="card__image" src="./images/замена стекла айпад.jpeg" alt="стекло айпад">
+                  <div class="card__wrapper">
+                     <h2 class="card__title">ipad замена стекла</h2>
+                     <div class="card__like-container">
+                        <button class="card__like-btn" type="button"></button>
+                     </div>
+                  </div>
+               </li>
+               <li class="card">
+                  <img class="card__image" src="./images/куллер.jpeg" alt="куллер">
+                  <div class="card__wrapper">
+                     <h2 class="card__title">куллер</h2>
+                     <div class="card__like-container">
+                        <button class="card__like-btn" type="button"></button>
+                     </div>
+                  </div>
+               </li>
+               <li class="card">
+                  <img class="card__image" src="./images/ребол памяти.jpeg" alt="ребол памяти">
+                  <div class="card__wrapper">
+                     <h2 class="card__title">ребол памяти</h2>
+                     <div class="card__like-container">
+                        <button class="card__like-btn" type="button"></button>
+                     </div>
+                  </div>
+               </li>
+               <li class="card">
+                  <img class="card__image" src="./images/утопленник.jpeg" alt="утопленый телефон">
+                  <div class="card__wrapper">
+                     <h2 class="card__title">утопленый телефон</h2>
+                     <div class="card__like-container">
+                        <button class="card__like-btn" type="button"></button>
+                     </div>
+                  </div>
+               </li>
+            </ul>
+         </section>
+      </main>
+      <footer class="footer">
+         <p class="footer__copyright">&copy; 2023 Mesto Russia</p>
+      </footer>
+      <div class="popup popup__open">
+         <form class="popup__container" method="post" name="form-popup">
+            <h2 class="popup__title">Редактировать профиль</h2>
+            <input name="user-input" value="" class="popup__input popup__input_user" type="text" placeholder="Жак-Ив Кусто">
+            <input name="job-input" value="" class="popup__input popup__input_job" type="text" placeholder="Исcледователь океана">
+            <button class="popup__button popup__button_act_submit" type="submit" value="save">Сохранить</button>
+            <button class="popup__button popup__button_act_exit" type="button" value="close">Закрыть</button>
+         </form>
+      </div>
+    <script src="./scripts/script.js"></script>
+   </body>
+</html>

@@ -13,9 +13,9 @@
 }
 
 @media screen and (max-width:500px) {
-	.popup__container{
+	.popup__container {
 		border-radius: 10px;
-	padding-left: 22px; 
-	padding-top: 25px; 
+		padding-left: 22px;
+		padding-top: 25px;
 	}
 }

@@ -1,28 +1,11 @@
 .profile__avatar {
-	display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
+	border-radius: 50%;
 	margin: 0 30px 0 0;
-		height: 120px;
-		overflow: hidden;
-		position: relative;
-		width: 120px;
-		transition: .7s ease;
-	}
-	
-
-
-@media screen and (max-width: 900px) {
-	.profile__avatar {
-		margin-right: 5%;
-
-	}
+	height: 120px;
 }
 
 @media screen and (max-width: 685px) {
 	.profile__avatar {
 		margin: 0 0 30px 0;
-
-	}
+    }
 }

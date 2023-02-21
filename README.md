@@ -17,3 +17,13 @@ ___
 
 * [Ссылка на макет в Figma](https://www.figma.com/file/2cn9N9jSkmxD84oJik7xL7/JavaScript.-Sprint-4?node-id=28212%3A155&t=5zRNG9KKxvO18ZHy-0)
 * [Ссылка на проект](https://servicebox.github.io/mesto/index.html)
+
+# Продолжение проект 5 ЯП: Место
+____
+
+* [Ссылка на макет в Figma](https://www.figma.com/file/bjyvbKKJN2naO0ucURl2Z0/JavaScript.-Sprint-5?node-id=50160%3A559&t=7BOkDQQka7DDIGo1-0)
+
+## что добавилось!
+* Релизация добавление картинок ползователем
+* Увеличение картинок при просмотре
+* Можно поставить лайк , удалить изображение либо добавть новое 

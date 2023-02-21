@@ -15,73 +15,63 @@
          <section class="profile">
             <img class="profile__avatar" src="./images/image.jpg" alt="аватарка">
             <div class="profile__info">
-               <h1 class="profile__title">Жак-Ив Кусто</h1>
-               <button  class="button profile__button profile__button_act_edit" type="button"></button>
-               <p class="profile__subtitle">Исcледователь океана</p>
+               <h1 class="profile__name">Жак-Ив Кусто</h1>
+               <button  class="profile__edit-button" type="button"></button>
+               <p class="profile__job">Исcледователь океана</p>
             </div>
-            <button class="button profile__button profile__button_act_add" type="button"></button>
+            <button class="profile__add-button" type="button"></button>
          </section>
-         <section class="cards">
-            <ul class="cards__list">
-               <li class="card">
-                  <img class="card__image" src="./images/1.jpeg" alt="видеокарта">
-                  <div class="card__wrapper">
-                     <h2 class="card__title">видеокарта</h2>
-                     <button class="card__like-btn" type="button"></button>
-                  </div>
-               </li>
-               <li class="card">
-                  <img class="card__image" src="./images/2.jpeg" alt="стекло">
-                  <div class="card__wrapper">
-                     <h2 class="card__title">Замена задней крышки</h2>
-                     <button class="card__like-btn" type="button"></button>
-                  </div>
-               </li>
-               <li class="card">
-                  <img class="card__image" src="./images/3.jpeg" alt="стекло">
-                  <div class="card__wrapper">
-                     <h2 class="card__title">ipad замена стекла</h2>
-                     <button class="card__like-btn" type="button"></button>
-                  </div>
-               </li>
-               <li class="card">
-                  <img class="card__image" src="./images/4.jpeg" alt="куллер">
-                  <div class="card__wrapper">
-                     <h2 class="card__title">куллер</h2>
-                     <button class="card__like-btn" type="button"></button>
-                  </div>
-               </li>
-               <li class="card">
-                  <img class="card__image" src="./images/5.jpeg" alt="сокет">
-                  <div class="card__wrapper">
-                     <h2 class="card__title">Замена сокета</h2>
-                     <button class="card__like-btn" type="button"></button>
-                  </div>
-               </li>
-               <li class="card">
-                  <img class="card__image" src="./images/6.jpeg" alt="утопленый">
-                  <div class="card__wrapper">
-                     <h2 class="card__title">утопленый телефон</h2>
-                     <button class="card__like-btn" type="button"></button>
-                  </div>
-               </li>
-            </ul>
-         </section>
+         <div class="cards">
+         </div>
       </main>
       <footer class="footer">
          <p class="footer__copyright">&copy; 2023 Mesto Russia</p>
       </footer>
-      <div class="popup ">
+      <div class="popup popup-profile">
          <div class="popup__container">
             <h2 class="popup__title">Редактировать профиль</h2>
-            <form name="profile" class="popup__form">
+            <form name="popup-form" class="form form-profile">
                <input name="name" class="popup__input popup__input_text_name" type="text" placeholder="имя">
                <input name="job" class="popup__input popup__input_text_job" type="text" placeholder="профессия">
-               <button  class="popup__button popup__button_act_submit" type="submit" value="save">Сохранить</button>
+               <button  class="form__submit-button" type="submit" value="save">Сохранить</button>
             </form>
-            <button class="popup__button popup__button_act_exit" type="button" value="close">Закрыть</button>
+            <button class="popup__close" type="button" value="close">Закрыть</button>
          </div>
       </div>
+      <div class="popup popup-add">
+         <div class="popup__container">
+            <form name="popup-form" class="form form-cards" >
+               <h2 class="popup__title">Новое место</h2>
+               <input type="text" name="name" class="popup__input popup__input_image_name" placeholder="Название">
+               <input type="url" name="link" class="popup__input popup__input_image_link" placeholder="Ссылка на картинку">
+               <button class="form__submit-button" type="submit">Создать</button>
+            </form>
+            <button class="popup__close" type="button" value="close">Закрыть</button>
+         </div>
+      </div>
+  
+      <div class="popup popup-image">
+         <div class="popup-image__container">
+            <button type="button" class="popup__close"></button>
+            <figure class="image">
+               <img class="popup-image__img" src="#" alt="Фотография пользователя">
+               <figcaption class="popup-image__title"></figcaption>
+            </figure>
+         </div>
+      </div>
+ 
+      <template id="card__template">
+         <div class="card">
+            <div class="card__image">
+               <img class="card__img" src="#" alt="Фотография пользователя">
+               <button class="card__del" type="button" value="del card"></button>
+            </div>
+            <div class="card__description">
+               <h2 class="card__name"></h2>
+               <button class="card__like" type="button" value="like"></button>
+            </div>
+         </div>
+      </template>
       <script src="./scripts/script.js"></script>
    </body>
 </html>

@@ -1,5 +1,4 @@
-
-//картинки масив
+// массив картинок
 const initialCards = [
   {
     name: "Архыз",
@@ -27,10 +26,8 @@ const initialCards = [
   },
 ];
 
-const popup = document.querySelector ('.popup');
-const buttonClose = document.querySelector ('.popup__button_act_exit');
-const editForm = document.querySelector ('.popup__form');
-const popupProfile = document.querySelector(".popup-profile");
+//переменные
+const popupProfile = document.querySelector(".popup-profile"); 
 const popupAdd = document.querySelector(".popup-add"); 
 const popupImage = document.querySelector(".popup-image"); 
 
@@ -40,7 +37,7 @@ const addButton = document.querySelector(".profile__add-button");
 const formCards = document.querySelector(".form-cards"); 
 const formProfile = document.querySelector(".form-profile");
 
-const nameProfileInput = document.querySelector(".popup__input_text_name"); 
+const nameProfileInput = document.querySelector(".popup__input_text_name");
 const jobProfileInput = document.querySelector(".popup__input_text_job"); 
 
 const nameProfileTitle = document.querySelector(".profile__name"); 
@@ -56,14 +53,14 @@ const cardsBlock = document.querySelector(".cards");
 const cardTemplate = document.querySelector("#card__template"); 
 const card = document.querySelector(".card");
 
-
+// все кнопки закрытия popup
 const closeButtons = document.querySelectorAll(".popup__close");
 closeButtons.forEach((button) => {
   const popup = button.closest(".popup"); 
   button.addEventListener("click", () => closePopup(popup));
 });
 
-
+//открытие и закрытие popup
 function openPopup(popup) {
   popup.classList.add("popup_opened");
 }
@@ -80,7 +77,7 @@ function handleFormProfileSubmit(evt) {
   closePopup(popupProfile);
 }
 
-
+//создаем новую картинку
 function createCard(item) {
   const cardName = item.name;
   const cardLink = item.link;
@@ -95,21 +92,18 @@ function createCard(item) {
   const buttonDel = cardElement.querySelector(".card__del");
   const cardImage = cardElement.querySelector(".card__img");
 
+  //like 
+  buttonLike.addEventListener("click", function (event) {
+    buttonLike.classList.toggle("card__like_active");
+  });
 
-  //buttonLike.addEventListener("click", function () {
-   // buttonLike.classList.Toggle("card__like_active");
-  //});
-
-  buttonLike.addEventListener('click', function(event) {
-  buttonLike.classList.toggle('card__like_active')
-});
-
+  //удаляем любую картинку
   buttonDel.addEventListener("click", function () {
     const parentOfDel = buttonDel.closest(".card");
     parentOfDel.remove();
   });
 
-
+  // открываем popup
   cardImage.addEventListener("click", function () {
     imageClicked.src = cardLink;
     imageClicked.alt = cardName;
@@ -140,13 +134,14 @@ formCards.addEventListener("submit", (evt) => {
   closePopup(popupAdd);
 });
 
-
+//открываем и редактируюем popup
 buttonEdit.addEventListener("click", function () {
   openPopup(popupProfile);
   nameProfileInput.value = nameProfileTitle.textContent;
   jobProfileInput.value = jobProfileTitle.textContent;
 });
 
+//открываем popup для добавления картинки
 addButton.addEventListener("click", function () {
   openPopup(popupAdd);
 });

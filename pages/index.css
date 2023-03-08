@@ -40,13 +40,19 @@
 @import url(..//bloks/form/__input-container/form__input-container.css);
 @import url(..//bloks/form/__name/form__name.css);
 @import url(..//bloks/form/__submit-button/form__submit-button.css);
+@import url(..//bloks/form/__submit-button/_inavtive/form__submit-button_inavtive.css);
+
+
+@import url(..//bloks/form/__input/form__input.css);
+@import url(..//bloks/form/__input/_text/form__input_text_job.css);
+@import url(..//bloks/form/__input/_text/form__input_text_name.css);
+@import url(..//bloks/form/__input-error/form__input-error.css);
+@import url(..//bloks/form/__input/_error/form__input_error.css );
 @import url(..//bloks/popup/popup.css);
 
 @import url(..//bloks/popup/__close/popup__close.css);
 @import url(..//bloks/popup/__container/popup__container.css);
-@import url(..//bloks/popup/__input/popup__input.css);
-@import url(..//bloks/popup/__input/_text/popup__input_text_job.css);
-@import url(..//bloks/popup/__input/_text/popup__input_text_name.css);
+
 @import url(..//bloks/popup/__title/poput__title.css);
 @import url(..//bloks/popup/_opened/popup_opened.css);
 

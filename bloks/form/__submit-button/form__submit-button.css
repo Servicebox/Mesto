@@ -1,6 +1,6 @@
 .form__submit-button {
 	padding: 14px 125px;
-	margin-top: 47px;
+	/*margin-top: 47px;*/
 	font-weight: 400;
 	font-size: 18px;
 	line-height: 22px;
@@ -15,7 +15,7 @@
 }
 
 .form__submit-button:hover {
-	opacity: 0.8;
+	opacity: 1;
 }
 
 @media (max-width: 535px) {

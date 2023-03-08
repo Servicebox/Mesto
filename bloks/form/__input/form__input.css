@@ -1,4 +1,4 @@
-.popup__input {
+.form__input {
     width: 100%;
     display: block;
     position: relative;
@@ -12,15 +12,20 @@
     font-size: 14px;
     line-height: 17px;
 }
+/*.form__input_invalid{
+    border: 1px solid red;
+    color: red;
+    outline: none;*/
+
 
 @media screen and (max-width: 530px) {
-    .popup__input {
+    .form__input {
         max-width: 350px;
     }
 }
 
 @media screen and (max-width: 500px) {
-    .popup__input {
+    .form__input {
         max-width: 238px;
         width: 100%;
     }

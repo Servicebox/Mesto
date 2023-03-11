@@ -141,6 +141,8 @@ formCards.addEventListener("submit", (e) => {
 //открываем и редактируем попап
 buttonEdit.addEventListener("click", function () {
   openPopup(popupProfile);
+  nameProfileInput.value = nameProfileTitle.textContent;
+  jobProfileInput.value = jobProfileTitle.textContent;
 });
 
 //открываем popup для добавления картинки

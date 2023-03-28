@@ -141,4 +141,3 @@ profileValidation.enableValidation();
 
 const formCardValidation = new FormValidator(obj, formCards);
 formCardValidation.enableValidation();
-

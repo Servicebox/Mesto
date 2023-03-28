@@ -9,10 +9,6 @@ class FormValidator {
 
   }
 
-  enableValidation() {
-      this._setEventListeners();
-  }
-
   // добавление класса с ошибкой 
   _showInputError() {
     const errorElement = this._formElement.querySelector(`.${this._inputElement.id}-error`);
@@ -77,6 +73,3 @@ this._isValid();
 export {
   FormValidator
 };
-
-
-

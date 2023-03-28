@@ -10,16 +10,16 @@ class FormValidator {
   }
 
   // добавление класса с ошибкой 
-  _showInputError() {
-    const errorElement = this._formElement.querySelector(`.${this._inputElement.id}-error`);
+  _showInputError(inputElement) {
+    const errorElement = this._formElement.querySelector(`#${inputElement.id}-error`);
     this._inputElement.classList.add(this._inputErrorClass);
     errorElement.textContent = this._inputElement.validationMessage
     errorElement.classList.add(this._errorClass);
   }
 
   // удаление класса с ошибкой 
-  _hideInputError() {
-    const errorElement = this._formElement.querySelector(`.${this._inputElement.id}-error`);
+  _hideInputError(inputElement) {
+    const errorElement = this._formElement.querySelector(`#${inputElement.id}-error`);
     this._inputElement.classList.remove(this._inputErrorClass);
     errorElement.classList.add(this._errorClass); //
     errorElement.textContent = '';
@@ -27,28 +27,33 @@ class FormValidator {
 
   // проверка валид. поля
   _isValid(inputElement) {
-    if (!this._inputElement.validity.valid) {
+    if (!inputElement.validity.valid) {
       this._showInputError(inputElement);
     } else {
-      this._hideInputError();
+      this._hideInputError(inputElement);
     }
   }
 //проверяет валид. полей, отключение или включение кнопки отправки 
-  _toggleButtonState(_inputList, _buttonElement) {
+  /** функция, которая проверяет валидность полей и отключает или включает кнопку отправки */
+  _toggleButtonState() {
     const isFormValid = this._formElement.checkValidity();
     this._buttonElement.disabled = !isFormValid;
     this._buttonElement.classList.toggle(
-        this._inactiveButtonClass, 
-        !isFormValid 
-      );
+      this._inactiveButtonClass, // добавляем класс неактивной кнопки
+      !isFormValid // если валидация не пройдена
+    );
   }
+
+_stopSubmit = (e) => {
+    e.preventDefault();
+}
 
   _setEventListeners() {
     this._inputList = this._formElement.querySelectorAll(this._inputSelector);
     this._inputList.forEach((inputElement) => {
         inputElement.addEventListener('input', () => {
           this._inputElement = inputElement;
-this._isValid();
+this._isValid(inputElement);
           this._toggleButtonState();
         });
       });
@@ -59,7 +64,7 @@ this._isValid();
   disablesSubmitForm() {
     this._inputList.forEach((inputSelector) => {
     this._inputSelector = inputSelector;
-    this._hideInputError();
+    this._hideInputError(inputElement);
       });
 
     this._toggleButtonState();

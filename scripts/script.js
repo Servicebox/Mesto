@@ -54,6 +54,7 @@ function closePopup(popup) {
   document.removeEventListener('click', closeWithinPopup);
 }
 
+
 // открытие модальных окон 
 function openPopup(popup) {
   popup.classList.add('popup_opened');
@@ -84,7 +85,6 @@ function addNewCard(input) {
 initialCards.forEach((input) => {
   addNewCard(createCard(input));
 });
-
 //cброс инпутов
 function clearInput(e) {
   e.target.reset();

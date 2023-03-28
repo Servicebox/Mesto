@@ -3,8 +3,8 @@ import { FormValidator } from './FormValidator.js';
 import { initialCards, obj } from './Array.js';
 
 //переменные
-const popupProfile = document.querySelector('.popup-profile'); //мод.окно профиля
-const popupAdd = document.querySelector('.popup-add'); //мод.окно  карточки
+const popupProfile = document.querySelector('.popup-profile');
+const popupAdd = document.querySelector('.popup-add'); //мод.окно добавления карточки
 const popupImage = document.querySelector('.popup-image'); //мод.окно картинки
 
 const buttonEdit = document.querySelector('.profile__edit-button'); //кнопка открытия модал окна редактирования профиля
@@ -13,8 +13,8 @@ const addButton = document.querySelector('.profile__add-button'); //кнопка
 const formCards = document.querySelector('.form-cards'); // форма модал окна добавления карточек
 const formProfile = document.querySelector('.form-profile'); // форма мод окна редактиования профиля
 
-const nameProfileInput = document.querySelector('.form__input_text_name'); //поле  имени пользователя
-const jobProfileInput = document.querySelector('.form__input_text_job'); //поле  описания пользователя
+const nameProfileInput = document.querySelector('.form__input_text_name'); //поле имени пользователя
+const jobProfileInput = document.querySelector('.form__input_text_job'); //поле описания пользователя
 const nameProfileTitle = document.querySelector('.profile__name'); // имя пользователя
 const jobProfileTitle = document.querySelector('.profile__job'); //описание пользователя
 
@@ -32,17 +32,17 @@ closeButtons.forEach((button) => {
   button.addEventListener('click', () => closePopup(popup)); // слушатель закрытия по клику на кнопку
 });
 
-//закрытие popup  оверлей
+//закрытие popup оверлей */
 const closeWithinPopup = (e) => {
-  if (e.target.classList.contains("popup_opened")) {
+  if (e.target.classList.contains('popup_opened')) {
     closePopup(e.target);
   }
 };
 
-//закрытие popup esc
+// закрытие popup esc 
 const closePopupEsc = (e) => {
-  if (e.keyCode == 27) {
-      const popupAll = document.querySelector(".popup_opened");
+  if (e.keyCode === 'Escape') {
+    const popupAll = document.querySelector('.popup_opened');
     closePopup(popupAll);
   }
 };
@@ -53,7 +53,6 @@ function closePopup(popup) {
   document.removeEventListener('keydown', closePopupEsc);
   document.removeEventListener('click', closeWithinPopup);
 }
-
 
 // открытие модальных окон 
 function openPopup(popup) {
@@ -70,21 +69,22 @@ function viewPopupImageImg(name, link) {
   openPopup(popupImage);
 }
 
-//создание новой карточки
+//создание новой карточки 
 function createCard(data) {
   const card = new Card(data, '#card__template', viewPopupImageImg);
   return card.generateCard();
 }
 
-// добавление новой карточки в начало блока */
+//добавление новой карточки
 function addNewCard(input) {
   cardsBlock.prepend(input);
 }
 
-// загрузка из массива 
+/** загрузка из массива */
 initialCards.forEach((input) => {
   addNewCard(createCard(input));
 });
+
 //cброс инпутов
 function clearInput(e) {
   e.target.reset();
@@ -111,14 +111,12 @@ function handleFormAddSubmit(e) {
 
   addNewCard(createCard(addCard));
 
-  //закрытие окна после сохранения 
+  //закрытие окна после сохранения
   closePopup(popupAdd, clearInput(e));
 }
 
-nameProfileInput.value = nameProfileTitle.textContent;
-jobProfileInput.value = jobProfileTitle.textContent;
 
-// открытие и ред. полей попап профиля 
+//открытие и редактирование полей попап профиля
 buttonEdit.addEventListener('click', function () {
   nameProfileInput.value = nameProfileTitle.textContent;
   jobProfileInput.value = jobProfileTitle.textContent;
@@ -126,16 +124,16 @@ buttonEdit.addEventListener('click', function () {
   openPopup(popupProfile);
 });
 
-//открытие попап добавления карточки 
+// открытие попап добавления карточки
 addButton.addEventListener('click', function () {
-  formCardValidation.disablesSubmitForm;
+  formCardValidation.disablesSubmitForm();
   openPopup(popupAdd);
 });
 
 formProfile.addEventListener('submit', handleFormProfileSubmit);
 formCards.addEventListener('submit', handleFormAddSubmit);
 
- //валидация 
+//валидация
 const profileValidation = new FormValidator(obj, formProfile);
 profileValidation.enableValidation();
 

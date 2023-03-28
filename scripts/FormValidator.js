@@ -8,7 +8,9 @@ class FormValidator {
     this._formElement = formElement;
 
   }
-
+  enableValidation() {
+    this._setEventListeners();
+  }
   // добавление класса с ошибкой 
   _showInputError(inputElement) {
     const errorElement = this._formElement.querySelector(`#${inputElement.id}-error`);
@@ -34,7 +36,6 @@ class FormValidator {
     }
   }
 //проверяет валид. полей, отключение или включение кнопки отправки 
-  /** функция, которая проверяет валидность полей и отключает или включает кнопку отправки */
   _toggleButtonState() {
     const isFormValid = this._formElement.checkValidity();
     this._buttonElement.disabled = !isFormValid;
@@ -44,9 +45,9 @@ class FormValidator {
     );
   }
 
-_stopSubmit = (e) => {
-    e.preventDefault();
-}
+//_stopSubmit = (e) => {
+   // e.preventDefault();
+//}
 
   _setEventListeners() {
     this._inputList = this._formElement.querySelectorAll(this._inputSelector);
@@ -61,13 +62,13 @@ this._isValid(inputElement);
     this._buttonElement = this._formElement.querySelector(this._submitButtonSelector);
   }
 
-  disablesSubmitForm() {
-    this._inputList.forEach((inputSelector) => {
-    this._inputSelector = inputSelector;
-    this._hideInputError(inputElement);
-      });
-
-    this._toggleButtonState();
+  disablesSubmitForm(inputElement) {
+  this._inputList.forEach((inputElement) => {
+  this._inputElement = inputElement;
+  this._hideInputError(inputElement);
+  });
+    
+  this._toggleButtonState(inputElement);
   }
 
   enableValidation() {

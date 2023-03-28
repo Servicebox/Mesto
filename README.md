@@ -38,6 +38,6 @@ ____
 
 # Продолжение проект 7 ЯП: Место
 * [Ссылка на макет в Figma](https://www.figma.com/file/kRVLKwYG3d1HGLvh7JFWRT/JavaScript.-Sprint-6?node-id=1124-73&t=wzU79HZmdCU1v0HO-0)
-
+* [Ссылка на проект](https://servicebox.github.io/mesto/index.html)
 ## что добавилось!
 * разбивание JavaScript на модули!

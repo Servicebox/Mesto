@@ -25,3 +25,14 @@ const initialCards = [
       link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg",
     },
   ];
+
+  const obj = {
+    formSelector: '.form',
+    inputSelector: '.form__input',
+    submitButtonSelector: '.form__submit-button',
+    inactiveButtonClass: 'form__submit-button_inactive',
+    inputErrorClass: 'form__input_error',
+    errorClass: 'form__input-error',
+  };
+  
+  export { initialCards, obj };

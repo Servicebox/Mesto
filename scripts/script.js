@@ -3,7 +3,6 @@ import { FormValidator } from './FormValidator.js';
 import { initialCards, obj } from './Array.js';
 
 //переменные
-const popup = document.querySelector('.popup');
 const popupProfile = document.querySelector('.popup-profile'); //мод.окно профиля
 const popupAdd = document.querySelector('.popup-add'); //мод.окно  карточки
 const popupImage = document.querySelector('.popup-image'); //мод.окно картинки
@@ -101,7 +100,7 @@ function handleFormProfileSubmit(e) {
   closePopup(popupProfile);
 }
 
-// сохранение даных карточки, внесение названия и ссылки на изо) 
+// сохранение даных карточки
 function handleFormAddSubmit(e) {
   e.preventDefault();
 
@@ -112,7 +111,7 @@ function handleFormAddSubmit(e) {
 
   addNewCard(createCard(addCard));
 
-  //закрытие окна после сохранения и очистка инпутов
+  //закрытие окна после сохранения 
   closePopup(popupAdd, clearInput(e));
 }
 
@@ -136,7 +135,7 @@ addButton.addEventListener('click', function () {
 formProfile.addEventListener('submit', handleFormProfileSubmit);
 formCards.addEventListener('submit', handleFormAddSubmit);
 
- //валидация форм
+ //валидация 
 const profileValidation = new FormValidator(obj, formProfile);
 profileValidation.enableValidation();
 

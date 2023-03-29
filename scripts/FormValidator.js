@@ -14,15 +14,15 @@ class FormValidator {
   // добавление класса с ошибкой 
   _showInputError(inputElement) {
     const errorElement = this._formElement.querySelector(`#${inputElement.id}-error`);
-    this._inputElement.classList.add(this._inputErrorClass);
-    errorElement.textContent = this._inputElement.validationMessage
+    inputElement.classList.add(this._inputErrorClass);
+    errorElement.textContent = inputElement.validationMessage
     errorElement.classList.add(this._errorClass);
   }
 
   // удаление класса с ошибкой 
   _hideInputError(inputElement) {
     const errorElement = this._formElement.querySelector(`#${inputElement.id}-error`);
-    this._inputElement.classList.remove(this._inputErrorClass);
+    inputElement.classList.remove(this._inputErrorClass );
     errorElement.classList.add(this._errorClass); //
     errorElement.textContent = '';
   }
@@ -45,30 +45,30 @@ class FormValidator {
     );
   }
 
-//_stopSubmit = (e) => {
-   // e.preventDefault();
-//}
+_stopSubmit = (e) => {
+    e.preventDefault();
+}
 
   _setEventListeners() {
     this._inputList = this._formElement.querySelectorAll(this._inputSelector);
     this._inputList.forEach((inputElement) => {
         inputElement.addEventListener('input', () => {
-          this._inputElement = inputElement;
+         // this._inputElement = inputElement;
 this._isValid(inputElement);
-          this._toggleButtonState();
+          this._toggleButtonState(inputElement);
         });
       });
 
     this._buttonElement = this._formElement.querySelector(this._submitButtonSelector);
   }
 
-  disablesSubmitForm(inputElement) {
+  disablesSubmitForm() {
   this._inputList.forEach((inputElement) => {
-  this._inputElement = inputElement;
+  //this._inputElement = inputElement;
   this._hideInputError(inputElement);
   });
     
-  this._toggleButtonState(inputElement);
+  this._toggleButtonState();
   }
 
   enableValidation() {

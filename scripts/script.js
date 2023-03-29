@@ -1,6 +1,6 @@
 import { Card } from './Card.js';
 import { FormValidator } from './FormValidator.js';
-import { initialCards, obj } from './Array.js';
+import { initialCards, obj } from './array.js';
 
 //переменные
 const popupProfile = document.querySelector('.popup-profile');
@@ -32,34 +32,60 @@ closeButtons.forEach((button) => {
   button.addEventListener('click', () => closePopup(popup)); // слушатель закрытия по клику на кнопку
 });
 
-//закрытие popup оверлей */
+//закрытие popup оверлей
 const closeWithinPopup = (e) => {
-  if (e.target.classList.contains('popup_opened')) {
+  const isOverlay = e.target.classList.contains('popup_opened');
+  if (isOverlay) {
     closePopup(e.target);
-  }
+    }
 };
+//закрытие popup оверлей */
+//const closeWithinPopup = (e) => {
+  //if (e.target.classList.contains('popup_opened')) {
+    //closePopup(e.target);
+  //}
+//};
 
-// закрытие popup esc 
 const closePopupEsc = (e) => {
-  if (e.keyCode === 'Escape') {
-    const popupAll = document.querySelector('.popup_opened');
-    closePopup(popupAll);
+  const isEsc = (e.key === 'Escape');
+  if (isEsc) {
+    const popup = document.querySelector('.popup_opened');
+    closePopup(popup);
   }
 };
+// закрытие popup esc 
+//const closePopupEsc = (e) => {
+  //if (e.keyCode === 'Escape') {
+    //const popupAll = document.querySelector('.popup_opened');
+    //closePopup(popupAll);
+  //}
+//};
 
-//закрытие модального окна
+/*закрытие модального окна
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
   document.removeEventListener('keydown', closePopupEsc);
   document.removeEventListener('click', closeWithinPopup);
 }
 
-// открытие модальных окон 
+// открытие модальных окон //
 function openPopup(popup) {
   popup.classList.add('popup_opened');
-  document.addEventListener('keydown', closePopupEsc);
-  document.addEventListener('click', closeWithinPopup);
+ document.addEventListener('keydown', closePopupEsc);
+ document.addEventListener('click', closeWithinPopup('.popup'));
 }
+*/
+const openPopup = (popup) => {
+  popup.classList.add('popup_opened');
+  popup.addEventListener('click', closeWithinPopup);
+  document.addEventListener('keydown', closePopupEsc);
+};
+
+const closePopup = (popup) => {
+  popup.classList.remove('popup_opened');
+  popup.removeEventListener('click', closeWithinPopup);
+  document.removeEventListener('keydown', closePopupEsc);
+};
 
 function viewPopupImageImg(name, link) {
   imageClicked.src = link;

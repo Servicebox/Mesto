@@ -1,6 +1,8 @@
 import { Card } from './Card.js';
 import { FormValidator } from './FormValidator.js';
 
+
+
 // массив картинок
 const initialCards = [
   {
@@ -75,13 +77,7 @@ const closeWithinPopup = (e) => {
     closePopup(e.target);
     }
 };
-//закрытие popup оверлей */
-//const closeWithinPopup = (e) => {
-  //if (e.target.classList.contains('popup_opened')) {
-    //closePopup(e.target);
-  //}
-//};
-
+//закрытие popup esc
 const closePopupEsc = (e) => {
   const isEsc = (e.key === 'Escape');
   if (isEsc) {
@@ -89,38 +85,14 @@ const closePopupEsc = (e) => {
     closePopup(popup);
   }
 };
-// закрытие popup esc 
-//const closePopupEsc = (e) => {
-  //if (e.keyCode === 'Escape') {
-    //const popupAll = document.querySelector('.popup_opened');
-    //closePopup(popupAll);
-  //}
-//};
-
-/*закрытие модального окна
-function closePopup(popup) {
-  popup.classList.remove('popup_opened');
-  document.removeEventListener('keydown', closePopupEsc);
-  document.removeEventListener('click', closeWithinPopup);
-}
-
-// открытие модальных окон //
-function openPopup(popup) {
-  popup.classList.add('popup_opened');
- document.addEventListener('keydown', closePopupEsc);
- document.addEventListener('click', closeWithinPopup('.popup'));
-}
-*/
+//open modal window
 const openPopup = (popup) => {
   popup.classList.add('popup_opened');
   popup.addEventListener('click', closeWithinPopup);
-  document.addEventListener('keydown', closePopupEsc);
 };
 
 const closePopup = (popup) => {
   popup.classList.remove('popup_opened');
-  popup.removeEventListener('click', closeWithinPopup);
-  document.removeEventListener('keydown', closePopupEsc);
 };
 
 function viewPopupImageImg(name, link) {
@@ -172,8 +144,6 @@ function handleFormAddSubmit(e) {
   };
 
   addNewCard(createCard(addCard));
-
-  //закрытие окна после сохранения
   closePopup(popupAdd, clearInput(e));
 }
 
@@ -192,6 +162,7 @@ addButton.addEventListener('click', function () {
   openPopup(popupAdd);
 });
 
+document.addEventListener('keydown', closePopupEsc);
 formProfile.addEventListener('submit', handleFormProfileSubmit);
 formCards.addEventListener('submit', handleFormAddSubmit);
 
@@ -201,3 +172,4 @@ profileValidation.enableValidation();
 
 const formCardValidation = new FormValidator(obj, formCards);
 formCardValidation.enableValidation();
+// я уже и так и эдак до чего доменяла ,уже не понимаю что надо , голова уже взрываеться

@@ -41,6 +41,7 @@ const obj = {
 };
 
 //переменные
+//const popup = document.querySelector('.popup')
 const popupProfile = document.querySelector('.popup-profile');
 const popupAdd = document.querySelector('.popup-add'); //мод.окно добавления карточки
 const popupImage = document.querySelector('.popup-image'); //мод.окно картинки
@@ -68,6 +69,7 @@ const closeButtons = document.querySelectorAll('.popup__close'); // все кн�
 closeButtons.forEach((button) => {
   const popup = button.closest('.popup'); //родитель к кнопке закрытия
   button.addEventListener('click', () => closePopup(popup)); // слушатель закрытия по клику на кнопку
+  popup.addEventListener('mousedown', () => closeWithinPopup);
 });
 
 //закрытие popup оверлей
@@ -88,12 +90,15 @@ const closePopupEsc = (e) => {
 //open modal window
 const openPopup = (popup) => {
   popup.classList.add('popup_opened');
-  popup.addEventListener('click', closeWithinPopup);
+  document.addEventListener('keydown', closePopupEsc); 
 };
+//close popup window
+const closePopup = (popup) => { 
+  popup.classList.remove('popup_opened'); 
+  popup.removeEventListener('click', closeWithinPopup); 
+  document.removeEventListener('keydown', closePopupEsc); 
 
-const closePopup = (popup) => {
-  popup.classList.remove('popup_opened');
-};
+}; 
 
 function viewPopupImageImg(name, link) {
   imageClicked.src = link;
@@ -161,7 +166,6 @@ addButton.addEventListener('click', function () {
   formCardValidation.disablesSubmitForm();
   openPopup(popupAdd);
 });
-
 document.addEventListener('keydown', closePopupEsc);
 formProfile.addEventListener('submit', handleFormProfileSubmit);
 formCards.addEventListener('submit', handleFormAddSubmit);
@@ -172,4 +176,4 @@ profileValidation.enableValidation();
 
 const formCardValidation = new FormValidator(obj, formCards);
 formCardValidation.enableValidation();
-// я уже и так и эдак до чего доменяла ,уже не понимаю что надо , голова уже взрываеться
+//Сергей спасибо огромное)// что помогли разобраться , иногда не сложная задача вгоняет в ступор и думать не получаеться адекватно!

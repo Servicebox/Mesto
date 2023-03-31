@@ -74,7 +74,7 @@ closeButtons.forEach((button) => {
 
 //закрытие popup оверлей */ 
 const closeWithinPopup = (e) => { 
-  if (e.target.classList.contains('.popup_opened')) { 
+  if (e.target.classList.contains('popup_opened')) { 
   closePopup(e.target); 
 } 
 };

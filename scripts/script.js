@@ -69,15 +69,14 @@ const closeButtons = document.querySelectorAll('.popup__close'); // все кн�
 closeButtons.forEach((button) => {
   const popup = button.closest('.popup'); //родитель к кнопке закрытия
   button.addEventListener('click', () => closePopup(popup)); // слушатель закрытия по клику на кнопку
-  popup.addEventListener('mousedown', () => closeWithinPopup);
+  popup.addEventListener('mousedown', (e) => closeWithinPopup(e));// слушатель закрытия по клику в оверлей
 });
 
-//закрытие popup оверлей
-const closeWithinPopup = (e) => {
-  const isOverlay = e.target.classList.contains('popup_opened');
-  if (isOverlay) {
-    closePopup(e.target);
-    }
+//закрытие popup оверлей */ 
+const closeWithinPopup = (e) => { 
+  if (e.target.classList.contains('.popup_opened')) { 
+  closePopup(e.target); 
+} 
 };
 //закрытие popup esc
 const closePopupEsc = (e) => {
@@ -166,7 +165,7 @@ addButton.addEventListener('click', function () {
   formCardValidation.disablesSubmitForm();
   openPopup(popupAdd);
 });
-document.addEventListener('keydown', closePopupEsc);
+
 formProfile.addEventListener('submit', handleFormProfileSubmit);
 formCards.addEventListener('submit', handleFormAddSubmit);
 

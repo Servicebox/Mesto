@@ -3,7 +3,7 @@
 	position: absolute;
 	right: -42px;
 	top: -38px;
-	background-image: url('../../../../images/close.svg');
+	background-image: url('../../../images/close.svg');
 	font-size: 0;
 	box-shadow: none;
 	color: white;
@@ -25,7 +25,7 @@
 	.popup__close {
 		top: -35px;
 		right: 0;
-		background-image: url('../../../../images/close_small.svg');
+		background-image: url('../../../images/close_small.svg');
 		max-height: 20px;
 		
 	}

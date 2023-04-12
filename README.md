@@ -41,3 +41,17 @@ ____
 * [Ссылка на проект](https://servicebox.github.io/mesto/index.html)
 ## что добавилось!
 * разбивание JavaScript на модули!
+
+# Продолжение проект 8 ЯП: Место
+## что добавилось!
+### настройка проекта webpack:
+* установлены webpack, webpack-cli и webpack-dev-server.
+* настроена обработка CSS.
+* настроена минификация CSS и автоматическое добавление вендорных префиксов.
+* настроена минификация и транспиляция JS-бабелем. Webpack собирает весь JavaScript в один файл и автоматически добавляет в HTML тег script со ссылкой на него.
+* настроены сборки build и dev.
+* скрипты созданы в package.json.
+
+* В код добавлены классы: Section, UserInfo , PopupWithForm, PopupWithImage, Popup .
+
+

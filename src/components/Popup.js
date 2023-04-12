@@ -1,5 +1,5 @@
 class Popup {
-    constructor(popupSelector) { 
+    constructor(popupSelector) { //принимает параметром - селектор класса
       this._popup = document.querySelector(popupSelector);
     }
   
@@ -16,19 +16,19 @@ class Popup {
     }
   
     _handleEscClose = (e) => {
-      //логика закрытия попап через Esc
+      //метод содержит логику закрытия попап через Esc
       if (e.key === 'Escape') {
-        this.close(this._popup);
+        this.close();
       }
     };
   
-    _handleOverlayClose = (e) => {
-      //логика закрытия попап нажатием на оверлей
+    /*_handleOverlayClose = (e) => {
+      //метод содержит логику закрытия попап нажатием на оверлей
       if (e.target.classList.contains('popup_opened')) {
         this.close(this._popup);
       }
     };
-  
+  */
     setEventListeners() {
       this._popup.addEventListener('click', (e) => {
           if (e.target.classList.contains('popup') || e.target.classList.contains('popup__close')) {

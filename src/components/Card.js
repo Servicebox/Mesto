@@ -30,7 +30,7 @@
     this._setEventListeners();
 
     this._elementImage.src = this._link;
-    this._elementImage.alt = this._link;
+    this._elementImage.alt = this._name;
     this._elementName.textContent = this._name;
 
     return this._element; // вернем наружу

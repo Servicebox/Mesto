@@ -1,14 +1,14 @@
 class Section {
-    constructor({ inputs, renderer }, container) {
-      this._inputs = inputs; //массив данных, которые нужно добавить на страницу
+    constructor({ items, renderer }, container) {
+      this._items = items; //массив данных, которые нужно добавить на страницу
       this._renderer = renderer; //функция, которая отвечает за создание и отрисовку данных на странице
       this._container = container; //сюда добавляются созданные элементы
     }
   
-    renderInputs() {
+    renderItems() {
       //метод, отвечающий за отрисовку всех элементов функцией renderer
-      this._inputs.forEach((input) => {
-        this._renderer(input);
+      this._items.forEach((item) => {
+        this._renderer(item);
       });
     }
   

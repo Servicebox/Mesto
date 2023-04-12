@@ -1,6 +1,6 @@
 //import { Card } from './components/Card.js';
 //import { FormValidator } from './components/FormValidator.js';
-import '../src/pages/index.css';
+import './index.css';
 
 import 
 {
@@ -13,14 +13,14 @@ import
   nameProfileInput,
   jobProfileInput,
   cardsBlock
-} from './utils/constants.js';
+} from '../utils/constants.js';
 
-import { Card } from './components/Card.js';
-import { FormValidator } from './components/FormValidator.js';
-import { Section } from './components/Section.js';
-import { PopupWithForm } from './components/PopupWithForm.js';
-import { PopupWithImage } from './components/PopupWithImage.js';
-import { UserInfo } from './components/UserInfo.js';
+import { Card } from '../components/Card.js';
+import { FormValidator } from '../components/FormValidator.js';
+import { Section } from '../components/Section.js';
+import { PopupWithForm } from '../components/PopupWithForm.js';
+import { PopupWithImage } from '../components/PopupWithImage.js';
+import { UserInfo } from '../components/UserInfo.js';
 
 /** экземпляр класса UserInfo, который отвечает за управление отображением информации о пользователе на странице */
 const user = new UserInfo({ nameSelector: '.profile__name', jobSelector: '.profile__job'});
@@ -32,11 +32,11 @@ function createCard(data) {
 }
 
 /** экземпляр класса Section, который отвечает за отрисовку элементов на странице */
-const cardsList = new Section({ inputs: initialCards, renderer: (input) => {
-  cardsList.addInput(createCard(input));
+const cardsList = new Section({ items: initialCards, renderer: (item) => {
+  cardsList.addInput(createCard(item));
 }}, cardsBlock);
 
-cardsList.renderInputs();
+cardsList.renderItems();
 
 /** экземпляры класса PopupWithForm */
 
@@ -47,7 +47,7 @@ const popupProfile = new PopupWithForm('.popup-profile', (inputs) => {
 });
 popupProfile.setEventListeners();
 
-function popupProfileOpen({ name, job}) {
+function openPopupProfile({ name, job}) {
   nameProfileInput.value = name;
   jobProfileInput.value = job;
 
@@ -55,7 +55,7 @@ function popupProfileOpen({ name, job}) {
 }
 
 buttonEdit.addEventListener('click', () => {
-  popupProfileOpen(user.getUserInfo());
+  openPopupProfile(user.getUserInfo());
   profileValidation.disablesSubmitForm();
 })
 

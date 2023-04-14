@@ -1,8 +1,8 @@
 class Section {
-    constructor({ items, renderer }, container) {
+    constructor({ items, renderer }, containerSelector) {
       this._items = items; //массив данных, которые нужно добавить на страницу
       this._renderer = renderer; //функция, которая отвечает за создание и отрисовку данных на странице
-      this._container = container; //сюда добавляются созданные элементы
+      this._container = containerSelector; //сюда добавляются созданные элементы
     }
   
     renderItems() {

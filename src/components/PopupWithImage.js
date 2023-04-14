@@ -6,11 +6,11 @@ class PopupWithImage extends Popup {
     super(popupSelector);
 
     this._imageClicked = this._popup.querySelector('.popup-image__img');
-    this._nameImageClicked = document.querySelector('.popup-image__title');
+    this._nameImageClicked = this._popup.querySelector('.popup-image__title');
   }
 
   open(name, link) {
-    this._nameImageClicked.textcontent = textcontent;
+    this._nameImageClicked.textcontent = name;
 
     this._imageClicked.src = link;
     this._imageClicked.alt = name;

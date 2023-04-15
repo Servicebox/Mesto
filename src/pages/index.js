@@ -34,7 +34,7 @@ function createCard(data) {
 /** экземпляр класса Section, который отвечает за отрисовку элементов на странице */
 const cardsList = new Section({ items: initialCards, renderer: (item) => {
   cardsList.addInput(createCard(item));
-}}, cardsBlock);
+}},'.cards');
 
 cardsList.renderItems();
 
@@ -87,3 +87,5 @@ const formCardValidation = new FormValidator(obj, formCards);
 formCardValidation.enableValidation();
 
 
+//Извините что так туплю и приходиться тратить еще время на проверку этой работы. Постоянно куда-то тороплюсь и не вчитываюсь, впредь буду внимательней и перепроверять
+//Спасибо))

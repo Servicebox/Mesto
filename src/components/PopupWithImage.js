@@ -10,7 +10,7 @@ class PopupWithImage extends Popup {
   }
 
   open(name, link) {
-    this._nameImageClicked.textcontent = name;
+    this._nameImageClicked.textContent = name;
 
     this._imageClicked.src = link;
     this._imageClicked.alt = name;

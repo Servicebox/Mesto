@@ -14,6 +14,7 @@
       <main class="content">
          <section class="profile">
             <img class="profile__avatar" src="<%=require('./images/image.jpg')%>" alt="аватарка">
+            <button type="button" class="profile__avatar_edit" aria-label="Редактирование аватара пользователя"></button>
             <div class="profile__info">
                <h1 class="profile__name">Жак-Ив Кусто</h1>
                <button  class="profile__edit-button" type="button"></button>
@@ -66,6 +67,34 @@
             </figure>
          </div>
       </div>
+
+      <div class="popup popup-avatar">
+         <div class="popup__container">
+             <form class="form form-avatar" name="popup-form" novalidate>
+                 <button class="popup__close" type="button" aria-label="Кнопка закрытия формы"></button>
+                 <h2 class="form__name">Обновить аватар</h2>
+                     <fieldset class="form__input-container">
+                         <input type="url" name="link" id="link-input" class="form__item form__item_avatar_link" placeholder="Ссылка на картинку" required>
+                         <span class="form__item-error link-input-error"></span>
+                     </fieldset>   
+                 <button class="form__submit-button" type="submit"  aria-label="Кнопка сохранения" disabled>Сохранить</button>
+             </form>
+         </div>
+     </div>
+     
+     <div class="popup popup-delete">
+         <div class="popup__container">
+             <form class="form form-delete" name="popup-form" novalidate>
+                 <button class="popup__close" type="button" aria-label="Кнопка закрытия формы"></button>
+                 <h2 class="form__name">Вы уверены?р</h2>
+                 <button class="form__submit-button form__submit-button_delete" type="submit"  aria-label="Кнопка подтверждения удаления карточки" disabled>Да</button>
+             </form>
+         </div>
+     </div>
+ </div>
+      
+ </div>
+
       <template id="card__template">
          <div class="card">
             <div class="card__image">
@@ -74,9 +103,11 @@
             </div>
             <div class="card__description">
                <h2 class="card__name"></h2>
-               <button class="card__like" type="button" value="like"></button>
+               <div class="card__like-container">
+                  <button class="card__like" type="button" aria-label="Значок лайк"></button>
+                  <span class="card__like-number"></span>
+          </div>
             </div>
-         </div>
        </template>
 
      <!--<script src="./scripts/script.js" type="module"></script> -->

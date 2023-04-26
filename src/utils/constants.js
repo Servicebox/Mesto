@@ -24,49 +24,65 @@ const initialCards = [
       link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg",
     },
   ];
+
   
   const obj = {
-    formSelector: '.form',
-    inputSelector: '.form__input',
-    submitButtonSelector: '.form__submit-button',
-    inactiveButtonClass: 'form__submit-button_inactive',
-    inputErrorClass: 'form__input_error',
-    errorClass: 'form__input-error',
+    formSelector: ".form",
+    inputSelector: ".form__input",
+    submitButtonSelector: ".form__submit-button",
+    inactiveButtonClass: "form__submit-button_inactive",
+    inputErrorClass: "form__input_error",
+    errorClass: "form__input-error",
   };
   
-  //переменные
-  //const popup = document.querySelector('.popup')
-  const popupProfile = document.querySelector('.popup-profile');
-  const popupAdd = document.querySelector('.popup-add'); //мод.окно добавления карточки
-  const popupImage = document.querySelector('.popup-image'); //мод.окно картинки
+  /** все модальные окна */
+  const popup = document.querySelector(".popup");
+  //const popupProfile = document.querySelector('.popup-profile'); //мод.окно профиля
+  //const popupAdd = document.querySelector('.popup-add'); //мод.окно добавления карточки
+  const popupImage = document.querySelector(".popup-image"); //мод.окно картинки
   
-  const buttonEdit = document.querySelector('.profile__edit-button'); //кнопка открытия модал окна редактирования профиля
-  const addButton = document.querySelector('.profile__add-button'); //кнопка открытия модал окна добавления карточки
+  /** кнопки открытия модальных окон */
+  const editProfileButton = document.querySelector(".profile__edit-button"); //кнопка открытия модалки редактирования профиля
+  const addCardButton = document.querySelector(".profile__add-button"); //кнопка открытия модалки добавления карточки
+  const editAvatarButton = document.querySelector('.profile__avatar_edit'); //кнопка открытия модалки редактирования аватара
+  const submitBtn = document.querySelector('.form__submit-button_profile');
   
-  const formCards = document.querySelector('.form-cards'); // форма модал окна добавления карточек
-  const formProfile = document.querySelector('.form-profile'); // форма мод окна редактиования профиля
+  /** формы модальных окон */
+  const formCards = document.querySelector(".form-cards"); // форма модалки добавления карточек
+  const formProfile = document.querySelector(".form-profile"); // форма модалки редактиования профиля
+  const formAvatar = document.querySelector('.form-avatar'); //форма модалки изменения аватара пользователя
   
-  const nameProfileInput = document.querySelector('.form__input_text_name'); //поле имени пользователя
-  const jobProfileInput = document.querySelector('.form__input_text_job'); //поле описания пользователя
-  const nameProfileTitle = document.querySelector('.profile__name'); // имя пользователя
-  const jobProfileTitle = document.querySelector('.profile__job'); //описание пользователя
+  /** данные модального окна профиля и его инпуты */
+  const nameProfileInput = document.querySelector(".form__input_text_name"); //поле ввода имени пользователя
+  const jobProfileInput = document.querySelector(".form__input_text_job"); //поле ввода описания пользователя
+  const nameProfileTitle = document.querySelector(".profile__name"); // имя пользователя
+  const jobProfileTitle = document.querySelector(".profile__job"); //описание пользователя
   
-  const nameImageAdd = document.querySelector('.form__input_image_name'); // название картинки
-  const linkImageAdd = document.querySelector('.form__input_image_link'); // ссылка на картинку
+  /** инпуты модального окна добавления карточек */
+  const nameImageAdd = document.querySelector(".form__input_image_name"); // название картинки
+  const linkImageAdd = document.querySelector(".form__input_image_link"); // ссылка на картинку
   
-  const imageClicked = document.querySelector('.popup-image__img'); // изображение
-  const nameImageClicked = document.querySelector('.popup-image__title'); // название изображения
+  /** данные модального окна просмотра изображения */
+  const imageClicked = document.querySelector(".popup-image__img"); // изображение
+  const nameImageClicked = document.querySelector(".popup-image__title"); // название изображения
   
-  const cardsBlock = document.querySelector('.cards'); // секция всех карточек
-
+  /** данные шаблона */
+  const cardsBlock = document.querySelector(".cards"); // секция всех карточек
+  const likeNumber = document.querySelector('.card__like-number'); //для счетчика лайков
+  const likeButton = document.querySelector('.card__like'); //кнопка лайка
+  
+  
   export {
     initialCards,
     obj,
-    buttonEdit,
-    addButton,
+    editProfileButton,
+    addCardButton,
     formCards,
     formProfile,
     nameProfileInput,
     jobProfileInput,
-    cardsBlock
+    cardsBlock,
+    editAvatarButton,
+    formAvatar
   }
+  

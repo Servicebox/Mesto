@@ -11,14 +11,13 @@ class PopupWithForm extends Popup {
     this._submitButtonText = this._submitButton.textContent;
   }
 
-  /** метод собирает данные всех полей формы */
+  //метод собирает данные всех полей формы
   _getInputValues() {
-    this._formInputValues = {}; //создали пустой объект
-
-    this._inputList.forEach((input) => { //наполнили объект значениями всех полей через forEach
+    this._formInputValues = {}; //пустой объект
+    this._inputList.forEach((input) => {
       this._formInputValues[input.name] = input.value;
     });
-    return this._formInputValues;//вернули заполненный объект
+    return this._formInputValues;
   }
 
   close() {
@@ -26,27 +25,25 @@ class PopupWithForm extends Popup {
     this._form.reset();
   }
 
-  // связываем с  _getInputValues
+ 
   setEventListeners() {
-    super.setEventListeners(); //перезаписывает родительский метода
+    super.setEventListeners();
 
-    this._form.addEventListener('submit', (e) => { //добавляет обработчик сабмита форме
+    this._form.addEventListener('submit', (e) => {
       e.preventDefault();
-      this._handleFormSubmit(this._getInputValues()); //передали в функцию объект (результат работы _getInputValues)
-      this.close();
+      this._handleFormSubmit(this._getInputValues());
     });
   }
 
-  /** показываем ход загрузки/сохранения */
   renderLoading(isLoading, submitButtonText) {
-    if(isLoading) {
+    if (isLoading) {
       this._submitButton.textContent = submitButtonText;
       this._submitButton.disabled = true;
     } else {
       this._submitButton.textContent = submitButtonText;
       this._submitButton.disabled = false;
     }
- }
+  }
 }
 
 export { PopupWithForm };

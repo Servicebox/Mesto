@@ -24,8 +24,6 @@ class Card {
     this._templateSelector = templateSelector;
   }
 
-  /** берем разметку из HTML, клонируем элемент и  везвращаем DOM-элемент карточки */
-  /** добавляем классу метод _getTemplate, который: */
   _getTemplate() {
     const cardElement = document
       .querySelector(this._templateSelector) // найдёт template-элемент (используем селектор, который передаем их index.js при создании карточки. Конструктор становится универсальным для разных template-элементов)
@@ -39,20 +37,20 @@ class Card {
     return this._id;
   }
 
-  /** лайк карточки */
+  // лайк карточки
   cardLiked(data) {
     this._likes = data.likes;
     this._elementLike.classList.toggle("card__like_active");
     this._likesCounter.textContent = this._likes.length;
   }
 
-  /** удаление карточки */
+  // удаление карточки
   removeCard() {
     this._element.remove();
     this._element = null;
   }
 
-  /** состояние лайка в зависимости от того активна его иконка или нет */
+  // состояние лайка в зависимости от того активна его иконка или нет
   _changeLikeState() {
     if (this._elementLike.classList.contains("card__like_active")) {
       this._handleRemoveLike(this._id);
@@ -61,7 +59,7 @@ class Card {
     }
   }
 
-  /** проверяем юзера, чтобы отобразить/или нет кнопку кдаления карточки */
+  //отобразить или нет кнопку кдаления карточки 
   _checkUserDeleteState() {
     if (this._owner !== this._userId) {
       this._elementDel.remove();
@@ -78,7 +76,7 @@ class Card {
     }
   }
 
-  /** метод добавления всех обработчиков в одном месте*/
+  // метод добавления всех обработчиков в одном месте
   _setEventListeners() {
     this._elementImage.addEventListener("click", () => {
       this._viewPopupImage();
@@ -93,23 +91,23 @@ class Card {
     });
   }
 
-  /** добавляем классу метод, который вставит данные в разметку и подготовит карточку к публикации */
+  //добавляем классу метод, который вставит данные в разметку и подготовит карточку к публикации 
   generateCard() {
     this._element = this._getTemplate(); // запишем в разметку приватное поле _cardElement (у др.элементов появится доступ к ней)
 
-    /** добавим данные */
+    // добавим данные
     this._elementImage = this._element.querySelector(".card__img");
     this._elementName = this._element.querySelector(".card__name");
     this._elementLike = this._element.querySelector(".card__like");
     this._elementDel = this._element.querySelector(".card__del");
     this._likesCounter = this._element.querySelector(".card__like-number");
 
-    /** навешиваем обработчики */
+    //навешиваем обработчики
     this._setEventListeners();
     this._checkUserDeleteState();
     this._isCardLiked();
 
-    /** передаем данные в карточку */
+    //передаем данные в карточку
     this._elementImage.src = this._link;
     this._elementImage.alt = this._link;
     this._elementName.textContent = this._name;

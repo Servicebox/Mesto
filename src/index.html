@@ -74,10 +74,10 @@
                  <button class="popup__close" type="button" aria-label="Кнопка закрытия формы"></button>
                  <h2 class="form__name">Обновить аватар</h2>
                      <fieldset class="form__input-container">
-                         <input type="url" name="link" id="link-input" class="form__item form__item_avatar_link" placeholder="Ссылка на картинку" required>
-                         <span class="form__item-error link-input-error"></span>
+                         <input type="url" name="link" id="link-input" class="form__input form__input_avatar_link" placeholder="Ссылка на картинку" required>
+                         <span class="form__input-error" id= "link-input-error"></span>
                      </fieldset>   
-                 <button class="form__submit-button" type="submit"  aria-label="Кнопка сохранения" disabled>Сохранить</button>
+                 <button  class="form__submit-button" type="submit"  aria-label="Кнопка сохранения" disabled>Сохранить</button>
              </form>
          </div>
      </div>
@@ -86,7 +86,7 @@
          <div class="popup__container">
              <form class="form form-delete" name="popup-form" novalidate>
                  <button class="popup__close" type="button" aria-label="Кнопка закрытия формы"></button>
-                 <h2 class="form__name">Вы уверены?р</h2>
+                 <h2 class="form__name">Вы уверены?</h2>
                  <button class="form__submit-button form__submit-button_delete" type="submit"  aria-label="Кнопка подтверждения удаления карточки" disabled>Да</button>
              </form>
          </div>
@@ -94,8 +94,7 @@
  </div>
       
  </div>
-
-      <template id="card__template">
+ <template id="card__template">
          <div class="card">
             <div class="card__image">
                <img class="card__img" src="#" alt="Фотография пользователя">

@@ -64,7 +64,7 @@ class Card {
   /** проверяем юзера, чтобы отобразить/или нет кнопку кдаления карточки */
   _checkUserDeleteState() {
     if (this._owner !== this._userId) {
-      this._elementTrash.remove();
+      this._elementDel.remove();
     }
   }
 
@@ -88,7 +88,7 @@ class Card {
       this._changeLikeState();
     });
 
-    this._elementTrash.addEventListener("click", () => {
+    this._elementDel.addEventListener("click", () => {
       this._handleCardDelete();
     });
   }
@@ -98,10 +98,10 @@ class Card {
     this._element = this._getTemplate(); // запишем в разметку приватное поле _cardElement (у др.элементов появится доступ к ней)
 
     /** добавим данные */
-    this._elementImage = this._element.querySelector(".card__pic");
+    this._elementImage = this._element.querySelector(".card__img");
     this._elementName = this._element.querySelector(".card__name");
     this._elementLike = this._element.querySelector(".card__like");
-    this._elementTrash = this._element.querySelector(".card__trash");
+    this._elementDel = this._element.querySelector(".card__del");
     this._likesCounter = this._element.querySelector(".card__like-number");
 
     /** навешиваем обработчики */

@@ -26,7 +26,7 @@ class PopupWithForm extends Popup {
     this._form.reset();
   }
 
-  /** связываем с  _getInputValues*/
+  // связываем с  _getInputValues
   setEventListeners() {
     super.setEventListeners(); //перезаписывает родительский метода
 

@@ -1,4 +1,3 @@
-/** класс, отвечающий за управление отображением информации о пользователе на странице */
 class UserInfo {
   constructor({ nameSelector, jobSelector, avatarSelector }) {
     this._userName = document.querySelector(nameSelector);

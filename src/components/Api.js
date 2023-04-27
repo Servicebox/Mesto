@@ -19,7 +19,7 @@ class Api {
   //обновим информацию пользователя
   editUserInfo(data) {
     return fetch(`${this._url}/users/me`, {
-      method: "PATCH",
+      method: 'PATCH',
       headers: this._headers,
       body: JSON.stringify({
         name: data.name,
@@ -35,11 +35,12 @@ class Api {
 
   //обновим аватар пользователя
   editUserAvatar(data) {
-    return fetch(`${this._url}/users/me/avatar`, { //не сохраняется новый аватар - ошибка от сервера 400
-      method: "PATCH",
+    return fetch(`${this._url}/users/me/avatar`, {
+      //не сохраняется новый аватар - ошибка от сервера 400
+      method: 'PATCH',
       headers: this._headers,
       body: JSON.stringify({
-        avatar: data.avatar,
+        avatar: data.link,
       }),
     }).then((res) => {
       if (res.ok) {
@@ -64,7 +65,7 @@ class Api {
   //добавим новую карточку
   addCards(data) {
     return fetch(`${this._url}/cards`, {
-      method: "POST",
+      method: 'POST',
       headers: this._headers,
       body: JSON.stringify({
         name: data.name,
@@ -81,7 +82,7 @@ class Api {
   //удалим карточку
   removeCardApi(_id) {
     return fetch(`${this._url}/cards/${_id}`, {
-      method: "DELETE",
+      method: 'DELETE',
       headers: this._headers,
     }).then((res) => {
       if (res.ok) {
@@ -94,7 +95,7 @@ class Api {
   // поставим лайк карточке
   addCardLike(_id) {
     return fetch(`${this._url}/cards/${_id}/likes`, {
-      method: "PUT",
+      method: 'PUT',
       headers: this._headers,
     }).then((res) => {
       if (res.ok) {
@@ -107,7 +108,7 @@ class Api {
   // удалим лайк с карточки
   removeCardLike(_id) {
     return fetch(`${this._url}/cards/${_id}/likes`, {
-      method: "DELETE",
+      method: 'DELETE',
       headers: this._headers,
     }).then((res) => {
       if (res.ok) {
@@ -116,6 +117,7 @@ class Api {
       return Promise.reject(`Ошибка: ${res.status}`);
     });
   }
+
 
 }
 

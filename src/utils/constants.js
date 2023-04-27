@@ -37,8 +37,8 @@ const initialCards = [
   
   /** все модальные окна */
   const popup = document.querySelector(".popup");
-  //const popupProfile = document.querySelector('.popup-profile'); //мод.окно профиля
-  //const popupAdd = document.querySelector('.popup-add'); //мод.окно добавления карточки
+  const popupProfile = document.querySelector('.popup-profile'); //мод.окно профиля
+  const popupAdd = document.querySelector('.popup-add'); //мод.окно добавления карточки
   const popupImage = document.querySelector(".popup-image"); //мод.окно картинки
   
   /** кнопки открытия модальных окон */

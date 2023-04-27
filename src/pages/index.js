@@ -1,9 +1,7 @@
 import '../pages/index.css';
 
 
-
-import 
-{
+import {
   initialCards,
   obj,
   editProfileButton,
@@ -14,8 +12,8 @@ import
   jobProfileInput,
   cardsBlock,
   editAvatarButton,
-  formAvatar
-} from '../utils/constants';
+  formAvatar,
+} from '../utils/constants.js';
 
 import { Card } from '../components/Card.js';
 import { FormValidator } from '../components/FormValidator.js';
@@ -26,15 +24,14 @@ import { UserInfo } from '../components/UserInfo.js';
 import { PopupConfirmation } from '../components/PopupConfirmation.js';
 import { Api } from '../components/Api.js';
 
-
-// экз класса Api
+/** экз класса Api */
 const api = new Api({
   url: 'https://mesto.nomoreparties.co/v1/cohort-64',
   headers: {
     authorization: '5d9c5d74-2e9f-4bf3-bd3c-1563f1b38a12',
-    'Content-Type': 'application/json'
-  }
-})
+    'Content-Type': 'application/json',
+  },
+});
 
 Promise.all([api.getUserInfoApi(), api.getInitialCards()])
   .then(([userData, initialCards]) => {
@@ -45,7 +42,7 @@ Promise.all([api.getUserInfoApi(), api.getInitialCards()])
     console.log(err);
   });
 
-// попап просмотра изображения
+/** попап просмотра изображения */
 const popupViewImage = new PopupWithImage('.popup-image');
 popupViewImage.setEventListeners();
 
@@ -54,24 +51,24 @@ function viewPopupImagePic(name, link) {
   popupViewImage.open(name, link);
 }
 
-//попап подтверждения удаления карточки
+/** попап подтверждения удаления карточки */
 const popupConfirm = new PopupConfirmation('.popup-delete');
 popupConfirm.setEventListeners();
 
-// для записи и нформации в инпуты профиля
+/** для записи и нформации в инпуты профиля */
 function inputsProfileInfo(data) {
   nameProfileInput.value = data.name;
   jobProfileInput.value = data.job;
 }
 
-// управление отображением информации о пользователе на странице */
+/** экземпляр класса UserInfo, который отвечает за управление отображением информации о пользователе на странице */
 const user = new UserInfo({
   nameSelector: '.profile__name',
   jobSelector: '.profile__job',
   avatarSelector: '.profile__avatar',
 });
 
-// попап редактирования профиля
+/** попап редактирования профиля */
 const popupProfile = new PopupWithForm('.popup-profile', (inputs) => {
   popupProfile.renderLoading(true, 'Сохраняем...');
   api
@@ -101,7 +98,7 @@ editProfileButton.addEventListener('click', () => {
   profileValidation.disablesSubmitForm();
 });
 
-//попап редактирования аватарки
+/** попап редактирования аватара пользователя */
 const popupAvatar = new PopupWithForm('.popup-avatar', (data) => {
   popupAvatar.renderLoading(true, 'Сохраняем...');
   api
@@ -120,10 +117,10 @@ const popupAvatar = new PopupWithForm('.popup-avatar', (data) => {
 popupAvatar.setEventListeners();
 
 editAvatarButton.addEventListener('click', () => {
-  popupAvatar.open();//открытие попап аватарки
+  popupAvatar.open();
 });
 
-//создание новой карточки 
+/** создание новой карточки */
 const createCard = (data) => {
   const card = new Card(
     {
@@ -176,7 +173,7 @@ const createCard = (data) => {
   return card.generateCard();
 };
 
-// отрисовка элементов на странице 
+/** экземпляр класса Section, который отвечает за отрисовку элементов на странице */
 const cardsList = new Section(
   {
     renderer: (input) => {
@@ -186,7 +183,7 @@ const cardsList = new Section(
   cardsBlock
 );
 
-//попап добавления карточки 
+/** попап добавления карточки */
 const popupAdd = new PopupWithForm('.popup-add', (data) => {
   popupAdd.renderLoading(true, 'Создаем...');
   api
@@ -210,7 +207,7 @@ addCardButton.addEventListener('click', () => {
   formCardValidation.disablesSubmitForm();
 });
 
-//валидация форм
+/** валидация форм */
 const profileValidation = new FormValidator(obj, formProfile);
 profileValidation.enableValidation();
 

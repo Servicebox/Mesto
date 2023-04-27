@@ -54,4 +54,4 @@ ____
 
 * В код добавлены классы: Section, UserInfo , PopupWithForm, PopupWithImage, Popup .
 
-
+# Продолжение проект 9 ЯП: Место

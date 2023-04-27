@@ -53,8 +53,7 @@ _stopSubmit = (e) => {
     this._inputList = this._formElement.querySelectorAll(this._inputSelector);
     this._inputList.forEach((inputElement) => {
         inputElement.addEventListener('input', () => {
-         // this._inputElement = inputElement;
-this._isValid(inputElement);
+          this._isValid(inputElement);
           this._toggleButtonState(inputElement);
         });
       });

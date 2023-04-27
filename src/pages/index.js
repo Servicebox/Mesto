@@ -27,7 +27,7 @@ import { PopupConfirmation } from '../components/PopupConfirmation.js';
 import { Api } from '../components/Api.js';
 
 
-/** экз класса Api */
+// экз класса Api
 const api = new Api({
   url: 'https://mesto.nomoreparties.co/v1/cohort-64',
   headers: {
@@ -45,7 +45,7 @@ Promise.all([api.getUserInfoApi(), api.getInitialCards()])
     console.log(err);
   });
 
-/** попап просмотра изображения */
+// попап просмотра изображения
 const popupViewImage = new PopupWithImage('.popup-image');
 popupViewImage.setEventListeners();
 
@@ -54,24 +54,24 @@ function viewPopupImagePic(name, link) {
   popupViewImage.open(name, link);
 }
 
-/** попап подтверждения удаления карточки */
+//попап подтверждения удаления карточки
 const popupConfirm = new PopupConfirmation('.popup-delete');
 popupConfirm.setEventListeners();
 
-/** для записи и нформации в инпуты профиля */
+// для записи и нформации в инпуты профиля
 function inputsProfileInfo(data) {
   nameProfileInput.value = data.name;
   jobProfileInput.value = data.job;
 }
 
-/** экземпляр класса UserInfo, который отвечает за управление отображением информации о пользователе на странице */
+// управление отображением информации о пользователе на странице */
 const user = new UserInfo({
   nameSelector: '.profile__name',
   jobSelector: '.profile__job',
   avatarSelector: '.profile__avatar',
 });
 
-/** попап редактирования профиля */
+// попап редактирования профиля
 const popupProfile = new PopupWithForm('.popup-profile', (inputs) => {
   popupProfile.renderLoading(true, 'Сохраняем...');
   api

@@ -9,7 +9,7 @@ class PopupConfirmation extends Popup {
     this._submitButtonText = this._submitButton.textContent;
   }
 
-  /** параметр функции - это колбэк удаления карточки */
+  //параметр функции - удаления карточки 
   setSubmit(submit) {
     this._handleSubmit = submit;
   }
@@ -23,7 +23,7 @@ class PopupConfirmation extends Popup {
     });
   }
 
-  /** показываем ход загрузки/сохранения */
+  //показываем ход загрузки/сохранения 
   renderLoading(isLoading, submitButtonText) {
     if (isLoading) {
       this._submitButton.textContent = submitButtonText;

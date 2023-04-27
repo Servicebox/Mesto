@@ -9,7 +9,7 @@ class PopupWithImage extends Popup {
   }
 
   open({ name, link }) {
-    /** вставляем в попап картинку (src) с названием (textContent)*/
+    //вставляем в попап картинку с названием textContent
     this._nameImageClicked.textcontent = name;
     this._imageClicked.src = link;
     this._imageClicked.alt = name;

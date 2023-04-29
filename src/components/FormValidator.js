@@ -45,9 +45,9 @@ class FormValidator {
     );
   }
 
-_stopSubmit = (e) => {
-    e.preventDefault();
-}
+//_stopSubmit = (e) => {
+  //  e.preventDefault();
+//}
 
   _setEventListeners() {
     this._inputList = this._formElement.querySelectorAll(this._inputSelector);

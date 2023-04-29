@@ -26,11 +26,11 @@ class Card {
 
   _getTemplate() {
     const cardElement = document
-      .querySelector(this._templateSelector) // найдёт template-элемент (используем селектор, который передаем их index.js при создании карточки. Конструктор становится универсальным для разных template-элементов)
-      .content.querySelector(".card") // извлечет его содержимое и в содержимом найдёт элемент с классом card
-      .cloneNode(true); // клонирует его
+      .querySelector(this._templateSelector) 
+      .content.querySelector(".card") 
+      .cloneNode(true); 
 
-    return cardElement; // вернёт клонированный элемент
+    return cardElement;
   }
 
   getId() {
@@ -94,6 +94,8 @@ class Card {
   //добавляем классу метод, который вставит данные в разметку и подготовит карточку к публикации 
   generateCard() {
     this._element = this._getTemplate(); // запишем в разметку приватное поле _cardElement (у др.элементов появится доступ к ней)
+    
+
 
     // добавим данные
     this._elementImage = this._element.querySelector(".card__img");

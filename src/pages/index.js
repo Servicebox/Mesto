@@ -119,8 +119,10 @@ const popupAvatar = new PopupWithForm('.popup-avatar', (data) => {
 });
 popupAvatar.setEventListeners();
 
+
 editAvatarButton.addEventListener('click', () => {
   popupAvatar.open();//открытие попап аватарки
+  formAvatarValidation.disablesSubmitForm();
 });
 
 //создание новой карточки 
